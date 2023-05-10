@@ -1,13 +1,28 @@
-﻿namespace _5._0.DataAccessLayer.Entity
+﻿using _5._0.DataAccessLayer.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace _5._0.DataAccessLayer.Entity
 {
-    public class User
+    [Table("tuser")]
+    public class User : EntityGeneric
     {
+        #region properties
+
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string idUser { get; set; }
         public string firstName { get; set; }
         public string surName { get; set; }
         public string email { get; set; }
         public string password { get; set; }
-        public DateTime registerDate { get; set; }
-        public DateTime updatedDate { get; set; }
+
+        #endregion
+
+        #region children
+
+        [InverseProperty("parentUser")]
+        public List<Person> childPerson { get; set; }
+
+        #endregion
     }
 }
