@@ -20,7 +20,7 @@ namespace _5._0.DataAccessLayer.Connection
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=127.0.0.1;Database=dbagenda20231;User Id=sa;Password=030191;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=127.0.0.1;Database=dbagenda20231;User Id=sa;Password=030191;TrustServerCertificate=True;");
         }
     }
 }
